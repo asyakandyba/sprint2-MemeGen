@@ -10,7 +10,7 @@ function onResize() {
 
 function resizeCanvas() {
     const elEditor = document.querySelector('.canvas-container')
-    gElCanvas.width = elEditor.offsetWidth 
+    gElCanvas.width = elEditor.offsetWidth
     gElCanvas.height = elEditor.offsetHeight
 }
 
@@ -36,9 +36,6 @@ function renderTxt() {
 
         line.width = gCtx.measureText(line.txt).width
         const center = (gElCanvas.width - line.width) / 2
-        console.log('gElCanvas.width:', gElCanvas.width)
-        console.log('line.width:', line.width)
-        console.log('center:', center)
         line.posX = center
 
         if (idx === 0) line.posY = 30
@@ -84,23 +81,8 @@ function selectLine() {
 
 function onDown(ev) {
     const { offsetX, offsetY } = ev
-    const { lines } = getMeme()
 
-    console.log('offsetX:', offsetX)
-    console.log('offsetY:', offsetY)
-
-    const line = lines.find(line => {
-        // console.log('line:', line)
-        return offsetX >= line.posX && offsetX <= line.posX + line.width
-            && offsetY <= line.posY && offsetY >= line.posY - line.size
-    })
-
-    console.log('line:', line)
-
-}
-
-function onSwitchLine() {
-    switchLine()
+    switchLine(offsetX, offsetY)
     renderMeme()
 }
 

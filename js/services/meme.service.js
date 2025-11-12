@@ -39,11 +39,12 @@ function addLine() {
     })
 }
 
-function switchLine() {
-    gMeme.selectedLineIdx++
-    if (gMeme.selectedLineIdx >= gMeme.lines.length) {
-        gMeme.selectedLineIdx = 0
-    }
+function switchLine(x, y) {
+    const idx = gMeme.lines.findIndex(line => {
+        return x >= line.posX && x <= line.posX + line.width
+            && y <= line.posY && y >= line.posY - line.size
+    })
+    gMeme.selectedLineIdx = idx
 }
 
 function setColor(clr) {
