@@ -1,23 +1,10 @@
 'use strict'
 
-let gMeme = {
+const gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
-    lines: [
-        {
-            txt: 'Write here',
-            size: 20,
-            color: 'white'
-        },
-        {
-            txt: 'Write here.',
-            size: 20,
-            color: 'white'
-        }
-    ]
+    lines: [_createLine(), _createLine()]
 }
-
-console.log('gMeme.lines:', gMeme.lines)
 
 function getMeme() {
     return gMeme
@@ -27,16 +14,8 @@ function setImg(id) {
     gMeme.selectedImgId = id
 }
 
-function setLineTxt(txt) {
-    gMeme.lines[gMeme.selectedLineIdx].txt = txt
-}
-
 function addLine() {
-    gMeme.lines.push({
-        txt: 'Write here',
-        size: 20,
-        color: 'white'
-    })
+    gMeme.lines.push(_createLine())
 }
 
 function switchLine(x, y) {
@@ -44,15 +23,34 @@ function switchLine(x, y) {
         return x >= line.posX && x <= line.posX + line.width
             && y <= line.posY && y >= line.posY - line.size
     })
-    gMeme.selectedLineIdx = idx
+    if (idx !== -1) gMeme.selectedLineIdx = idx
 }
 
-function setColor(clr) {
-    console.log(gMeme.lines[gMeme.selectedLineIdx])
-    gMeme.lines[gMeme.selectedLineIdx].color = clr
+function setTxt(txt) {
+    const currLine = _getCurrLine()
+    currLine.txt = txt
 }
 
-function setSize(dif) {
-    gMeme.lines[gMeme.selectedLineIdx].size += dif
+function setTxtColor(clr) {
+    const currLine = _getCurrLine()
+    currLine.color = clr
+}
+
+function setTxtSize(diff) {
+    const currLine = _getCurrLine()
+    currLine.size += diff
+}
+
+function _getCurrLine() {
+    const currIdx = gMeme.selectedLineIdx
+    return gMeme.lines[currIdx]
+}
+
+function _createLine() {
+    return {
+        txt: 'Write here',
+        size: 20,
+        color: 'white'
+    }
 }
 

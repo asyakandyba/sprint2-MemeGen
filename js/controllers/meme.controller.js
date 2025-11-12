@@ -1,7 +1,7 @@
 'use strict'
 
-let gElCanvas = document.querySelector('canvas')
-let gCtx = gElCanvas.getContext('2d')
+const gElCanvas = document.querySelector('canvas')
+const gCtx = gElCanvas.getContext('2d')
 
 function onResize() {
     resizeCanvas()
@@ -15,20 +15,18 @@ function resizeCanvas() {
 }
 
 function renderMeme() {
-    const { selectedImgId } = getMeme()
+    const { selectedImgId, lines } = getMeme()
 
     const img = new Image()
     img.src = `img/${selectedImgId}.jpg`
 
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
-        renderTxt()
+        renderTxt(lines)
     }
 }
 
-function renderTxt() {
-    const { lines } = getMeme()
-
+function renderTxt(lines) {
     lines.forEach((line, idx) => {
 
         gCtx.font = `${line.size}px Impact`
@@ -48,26 +46,6 @@ function renderTxt() {
     selectLine()
 }
 
-function onSetTxt(elTxtInput) {
-    setLineTxt(elTxtInput.value)
-    renderMeme()
-}
-
-function onSetColor(elClrInput) {
-    setColor(elClrInput.value)
-    renderMeme()
-}
-
-function onSetSize(elSizeInput) {
-    setSize(+elSizeInput.value)
-    renderMeme()
-}
-
-function onAddLine() {
-    addLine()
-    renderMeme()
-}
-
 function selectLine() {
     const { selectedLineIdx, lines } = getMeme()
     const currLine = lines[selectedLineIdx]
@@ -83,6 +61,26 @@ function onDown(ev) {
     const { offsetX, offsetY } = ev
 
     switchLine(offsetX, offsetY)
+    renderMeme()
+}
+
+function onAddLine() {
+    addLine()
+    renderMeme()
+}
+
+function onSetTxt(elTxtInput) {
+    setTxt(elTxtInput.value)
+    renderMeme()
+}
+
+function onSetColor(elClrInput) {
+    setTxtColor(elClrInput.value)
+    renderMeme()
+}
+
+function onSetSize(elSizeInput) {
+    setTxtSize(+elSizeInput.value)
     renderMeme()
 }
 
