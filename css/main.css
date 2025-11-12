@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    margin: 0;
+}
+
+.editor {
+    width: 50vw;
+    height: 75vh;
+    margin: auto;
+}
+
+canvas{
+    border: 1px solid gray;
+}

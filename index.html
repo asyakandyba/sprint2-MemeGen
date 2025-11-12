@@ -8,19 +8,24 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body>
+<body onload="onInit()" onresize="onResize()">
 
     <header>
         <h1>Meme generator</h1>
     </header>
 
-    <section class="galerry"></section>
+    <section class="gallery">
+    </section>
 
-    <section class="editor"></section>
+    <section class="editor">
+        <canvas width="400" height="400"></canvas>
+    </section>
 
     <footer></footer>
 
     <script src="js/main.js"></script>
+    <script src="js/controllers/meme.controller.js"></script>
+    <script src="js/services/meme.service.js"></script>
 </body>
 
 </html>
