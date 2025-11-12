@@ -39,6 +39,13 @@ function addLine() {
     })
 }
 
+function switchLine() {
+    gMeme.selectedLineIdx++
+    if (gMeme.selectedLineIdx >= gMeme.lines.length) {
+        gMeme.selectedLineIdx = 0
+    }
+}
+
 function setColor(clr) {
     console.log(gMeme.lines[gMeme.selectedLineIdx])
     gMeme.lines[gMeme.selectedLineIdx].color = clr

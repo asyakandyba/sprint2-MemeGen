@@ -29,17 +29,24 @@ function renderMeme() {
 
 function renderTxt() {
     const { lines } = getMeme()
+
     lines.forEach((line, idx) => {
+
         gCtx.font = `${line.size}px Impact`
         gCtx.fillStyle = line.color
-        if (idx === 0) {
-            gCtx.fillText(line.txt, 0, 30)
-        } else if (idx === 1) {
-            gCtx.fillText(line.txt, 0, gElCanvas.height)
-        } else {
-            gCtx.fillText(line.txt, 0, gElCanvas.height / 2)
-        }
+
+        line.width = gCtx.measureText(line.txt).width
+        const center = (gElCanvas.width - line.width) / 2
+        line.posX = center
+
+        if (idx === 0) line.posY = 30
+        else if (idx === 1) line.posY = gElCanvas.height - 30
+        else line.posY = gElCanvas.height / 2
+
+        gCtx.fillText(line.txt, line.posX, line.posY)
     })
+
+    selectLine()
 }
 
 function onSetTxt(elTxtInput) {
@@ -59,6 +66,22 @@ function onSetSize(elSizeInput) {
 
 function onAddLine() {
     addLine()
+    renderMeme()
+}
+
+function selectLine() {
+    const { selectedLineIdx, lines } = getMeme()
+    const currLine = lines[selectedLineIdx]
+
+    const x = currLine.posX
+    const lineHeight = -currLine.size * 1.5
+    const y = currLine.posY - (lineHeight / 4)
+
+    gCtx.strokeRect(x, y, currLine.width, lineHeight)
+}
+
+function onSwitchLine() {
+    switchLine()
     renderMeme()
 }
 
