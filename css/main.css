@@ -28,3 +28,7 @@ body {
 img {
     width: 100%;
 }
+
+.hidden {
+    display: none;
+}

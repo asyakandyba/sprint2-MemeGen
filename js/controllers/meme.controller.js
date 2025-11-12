@@ -15,6 +15,7 @@ function resizeCanvas() {
 }
 
 function renderMeme() {
+    resizeCanvas()
     const { selectedImgId, selectedLineIdx, lines } = getMeme()
     const currLine = lines[selectedLineIdx]
 
