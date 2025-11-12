@@ -1,5 +1,9 @@
 'use strict'
 
+function onInit() {
+    renderGallery()
+}
+
 function renderGallery() {
     const imgs = getImgs()
     const strHTMLs = imgs.map(img =>
