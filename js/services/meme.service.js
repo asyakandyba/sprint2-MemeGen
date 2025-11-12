@@ -5,17 +5,19 @@ let gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'Lorem ipsum dolor sit.',
+            txt: 'Write here',
             size: 20,
-            color: 'black'
+            color: 'white'
         },
         {
-            txt: 'lalla lalala.',
+            txt: 'Write here.',
             size: 20,
             color: 'white'
         }
     ]
 }
+
+console.log('gMeme.lines:', gMeme.lines)
 
 function getMeme() {
     return gMeme
@@ -29,10 +31,20 @@ function setLineTxt(txt) {
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
 }
 
+function addLine() {
+    gMeme.lines.push({
+        txt: 'Write here',
+        size: 20,
+        color: 'white'
+    })
+}
+
 function setColor(clr) {
+    console.log(gMeme.lines[gMeme.selectedLineIdx])
     gMeme.lines[gMeme.selectedLineIdx].color = clr
 }
 
 function setSize(dif) {
     gMeme.lines[gMeme.selectedLineIdx].size += dif
 }
+

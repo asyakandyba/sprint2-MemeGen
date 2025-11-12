@@ -29,10 +29,17 @@ function renderMeme() {
 
 function renderTxt() {
     const { lines } = getMeme()
-    gCtx.font = `${lines[0].size}px Impact`
-    gCtx.fillStyle = lines[0].color
-    gCtx.fillText(lines[0].txt, 0, 30)
-    gCtx.fillText(lines[1].txt, 0, gElCanvas.height)
+    lines.forEach((line, idx) => {
+        gCtx.font = `${line.size}px Impact`
+        gCtx.fillStyle = line.color
+        if (idx === 0) {
+            gCtx.fillText(line.txt, 0, 30)
+        } else if (idx === 1) {
+            gCtx.fillText(line.txt, 0, gElCanvas.height)
+        } else {
+            gCtx.fillText(line.txt, 0, gElCanvas.height / 2)
+        }
+    })
 }
 
 function onSetTxt(elTxtInput) {
@@ -47,6 +54,11 @@ function onSetColor(elClrInput) {
 
 function onSetSize(elSizeInput) {
     setSize(+elSizeInput.value)
+    renderMeme()
+}
+
+function onAddLine() {
+    addLine()
     renderMeme()
 }
 
