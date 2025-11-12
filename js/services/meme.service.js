@@ -7,18 +7,32 @@ let gMeme = {
         {
             txt: 'Lorem ipsum dolor sit.',
             size: 20,
-            color: 'red'
-        }]
+            color: 'black'
+        },
+        {
+            txt: 'lalla lalala.',
+            size: 20,
+            color: 'white'
+        }
+    ]
 }
 
 function getMeme() {
     return gMeme
 }
 
+function setImg(id) {
+    gMeme.selectedImgId = id
+}
+
 function setLineTxt(txt) {
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
 }
 
-function setImg(id){
-    gMeme.selectedImgId = id
+function setColor(clr) {
+    gMeme.lines[gMeme.selectedLineIdx].color = clr
+}
+
+function setSize(dif) {
+    gMeme.lines[gMeme.selectedLineIdx].size += dif
 }
