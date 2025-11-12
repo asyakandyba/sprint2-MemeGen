@@ -16,7 +16,6 @@ function resizeCanvas() {
 
 function renderMeme() {
     const { selectedImgId, selectedLineIdx, lines } = getMeme()
-    const currLine = lines[selectedLineIdx]
 
     const img = new Image()
     img.src = `img/${selectedImgId}.jpg`
@@ -78,6 +77,24 @@ function selectLine() {
     const y = currLine.posY - (lineHeight / 4)
 
     gCtx.strokeRect(x, y, currLine.width, lineHeight)
+}
+
+//doesnt work yet
+function onDown(ev) {
+    const { offsetX, offsetY } = ev
+    const { lines } = getMeme()
+
+    console.log('offsetX:', offsetX)
+    console.log('offsetY:', offsetY)
+
+    const line = lines.find(line => {
+        console.log('line:', line)
+        return offsetX >= line.posX && offsetX <= line.posX + line.width
+            && offsetY <= line.posY && offsetY >= line.posY - line.size
+    })
+
+    console.log('line:', line)
+
 }
 
 function onSwitchLine() {
