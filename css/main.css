@@ -8,11 +8,16 @@ body {
 }
 
 .editor {
-    width: 50vw;
+    display: flex;
+
+    width: 75vw;
     height: 75vh;
     margin: auto;
-}
 
-canvas{
     border: 1px solid gray;
 }
+
+/* .input-container {
+    display: flex;
+    justify-content: center;
+} */

@@ -18,7 +18,7 @@ function onResize() {
 
 function resizeCanvas() {
     const elEditor = document.querySelector('.editor')
-    gElCanvas.width = elEditor.offsetWidth
+    gElCanvas.width = elEditor.offsetWidth / 2
     gElCanvas.height = elEditor.offsetHeight
 }
 
@@ -35,4 +35,9 @@ function renderMeme() {
         gCtx.fillStyle = currLine.color
         gCtx.fillText(currLine.txt, 0, 30)
     }
+}
+
+function onSetTxt(elInput) {
+    setLineTxt(elInput.value)
+    renderMeme()
 }
