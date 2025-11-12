@@ -15,8 +15,6 @@ function getMeme() {
     return gMeme
 }
 
-function setLineTxt(txt){
+function setLineTxt(txt) {
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
-
-
 }
