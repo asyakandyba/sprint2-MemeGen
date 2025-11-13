@@ -3,10 +3,10 @@
     .editor {
         flex-direction: column;
         gap: 20px;
-        height: 30vh;
 
         >.canvas-container {
             width: 100%;
+            height: 40vh;
         }
     }
 
