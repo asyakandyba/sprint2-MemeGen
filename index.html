@@ -33,19 +33,50 @@
             <input type="text" placeholder="Write here" oninput="onSetTxt(this)">
 
             <div class="line-btns">
-                <button onclick="onAddLine()">Add line</button>
-                <button onclick="onDeleteLine()">Delete line</button>
-                <button onclick="onMoveLine(this)" data-dir="up">UP</button>
-                <button onclick="onMoveLine(this)" data-dir="down">Down</button>
-                <button onclick="onAlignLine(this)" data-dir="left">left</button>
-                <button onclick="onAlignLine(this)" data-dir="right">right</button>
-                <button onclick="onAlignLine(this)" data-dir="center">center</button>
+                <button onclick="onAddLine()">
+                    <img src="img/plus.png">
+                </button>
+
+                <button onclick="onDeleteLine()">
+                    <img src="img/delete.png">
+                </button>
+
+                <button onclick="onMoveLine(this)" data-dir="up">
+                    <img src="img/up.png">
+                </button>
+
+                <button onclick="onMoveLine(this)" data-dir="down">
+                    <img src="img/down.png">
+                </button>
+
+                <button onclick="onAlignLine(this)" data-dir="left">
+                    <img src="img/align-left.png">
+                </button>
+
+                <button onclick="onAlignLine(this)" data-dir="center">
+                    <img src="img/align-center.png">
+                </button>
+
+                <button onclick="onAlignLine(this)" data-dir="right">
+                    <img src="img/align-right.png">
+                </button>
             </div>
 
             <div class="txt-btns">
-                <input type="color" value="#ffffff" onchange="onSetColor(this)">
-                <button onclick="onSetSize(this)" value="5">+</button>
-                <button onclick="onSetSize(this)" value="-5">-</button>
+                <button>
+                    <label for="color">
+                        <img class="color-picker" src="img/color-picker.png">
+                    </label>
+                </button>
+                <input class="hidden" type="color" id="color" value="#ffffff" onchange="onSetColor(this)">
+
+                <button onclick="onSetSize(this)" value="5">
+                    <img src="img/size-up.png">
+                </button>
+
+                <button onclick="onSetSize(this)" value="-5">
+                    <img src="img/size-down.png">
+                </button>
 
                 <select onchange="onSetFont(this)">
                     <option>Arial</option>
@@ -63,7 +94,7 @@
                 </select>
             </div>
 
-            <a href="#" onclick="onDownloadMeme(this)" download="file-name">Download</a>
+            <a href="#" onclick="onDownloadMeme(this)" download="file-name">📥Download</a>
         </div>
     </section>
 
