@@ -59,9 +59,9 @@ function _getCurrLine() {
 }
 
 function createLines(gElCanvas) {
-    const centerX = (gElCanvas.width - 40) / 2
+    const centerX = (gElCanvas.width - 46) / 2 //46 is the width of the starting line
     _createLine(centerX, 30)
-    _createLine(centerX, (gElCanvas.height - 80))
+    _createLine(centerX, (gElCanvas.height - 30))
 }
 
 function _createLine(posX, posY) {

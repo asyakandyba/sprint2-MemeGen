@@ -14,4 +14,5 @@ function onImgSelect(id) {
     document.querySelector('.editor').classList.remove('hidden')
     document.querySelector('.gallery').classList.add('hidden')
     onResize()
+    createLines(gElCanvas)
 }

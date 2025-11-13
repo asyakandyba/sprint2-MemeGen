@@ -102,7 +102,3 @@ function onDownloadMeme(elLink) {
     elLink.href = dataUrl
     elLink.download = 'my-canvas'
 }
-
-// line.width = gCtx.measureText(line.txt).width
-//     const center = (gElCanvas.width - line.width) / 2
-//     line.posX = center
