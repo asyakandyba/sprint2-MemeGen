@@ -1,7 +1,11 @@
 .gallery {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    gap: 1.5rem;
 
-    margin: 20px
+    /* margin: 1rem;
+    padding: 1.5rem; */
+
+    border-radius: 1rem;
+    background-color: var(--clr-primary-base);
 }

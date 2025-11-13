@@ -8,10 +8,15 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 
-<body onload="onInit()" onresize="onResize()">
+<body onload="onInit()" onresize="onResize()" class="main-layout">
 
-    <header>
-        <h1>Meme generator</h1>
+    <header class="main-header">
+
+        <img class="logo" src="img/logo.png">
+        <nav>
+            <a href="index.html">Gallery</a>
+            <a href="#">Saved</a>
+        </nav>
     </header>
 
     <section class="gallery"></section>
@@ -21,18 +26,18 @@
             <canvas width="400" height="400" onmousedown="onDown(event)"></canvas>
         </div>
 
-        <div class="input-container">
-            <label>
-                Text:
-                <input type="text" oninput="onSetTxt(this)">
-            </label>
+        <div class="edit-container">
+            <input type="text" oninput="onSetTxt(this)">
 
-            <input type="color" value="#ffffff" onchange="onSetColor(this)">
+            <div class="line-btns">
+                <button onclick="onAddLine()">Add line</button>
+            </div>
 
-            <button onclick="onSetSize(this)" value="5">+</button>
-            <button onclick="onSetSize(this)" value="-5">-</button>
-
-            <button onclick="onAddLine()">Add line</button>
+            <div class="txt-btns">
+                <input type="color" value="#ffffff" onchange="onSetColor(this)">
+                <button onclick="onSetSize(this)" value="5">+</button>
+                <button onclick="onSetSize(this)" value="-5">-</button>
+            </div>
 
             <a href="#" onclick="onDownloadMeme(this)" download="file-name">Download</a>
         </div>

@@ -1,0 +1,10 @@
+.edit-container {
+    display: grid;
+    align-items: center;
+
+    >input{
+        border-radius: 1.5rem;
+        padding: 0.5rem;
+        width: 15rem;
+    }
+}

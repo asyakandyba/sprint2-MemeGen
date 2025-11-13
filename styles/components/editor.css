@@ -1,14 +1,15 @@
 .editor {
     display: flex;
+    justify-content: space-evenly;
 
-    width: 75vw;
     height: 75vh;
-    margin: auto;
-
-    border: 1px solid gray;
 
     >.canvas-container {
+        grid-column: 2;
         width: 50%;
-        height: 100%;
+    }
+
+    >.edit-container {
+        grid-column: 4;
     }
 }
