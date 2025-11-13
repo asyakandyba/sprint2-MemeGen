@@ -74,7 +74,7 @@ function onMoveLine(elBtn) {
     renderMeme()
 }
 
-function onAlignLine(elBtn){
+function onAlignLine(elBtn) {
     const dir = elBtn.dataset.dir
     alignLine(dir, gElCanvas)
     renderMeme()
