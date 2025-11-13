@@ -41,6 +41,12 @@ function setTxtSize(diff) {
     currLine.size += diff
 }
 
+function setTxtFont(font) {
+    console.log('font:', font)
+    const currLine = _getCurrLine()
+    currLine.font = font
+}
+
 function _getCurrLine() {
     const currIdx = gMeme.selectedLineIdx
     return gMeme.lines[currIdx]
@@ -50,7 +56,8 @@ function _createLine() {
     return {
         txt: 'Write here',
         size: 20,
-        color: 'white'
+        color: 'white',
+        font: 'Impact',
     }
 }
 
