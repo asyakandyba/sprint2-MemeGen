@@ -1,9 +1,9 @@
 'use strict'
 
 const gMeme = {
-    selectedImgId: 5,
+    selectedImgId: 0,
     selectedLineIdx: 0,
-    lines: [_createLine(), _createLine()]
+    lines: []
 }
 
 function getMeme() {
@@ -14,8 +14,15 @@ function setImg(id) {
     gMeme.selectedImgId = id
 }
 
-function addLine() {
-    gMeme.lines.push(_createLine())
+function addLine(gElCanvas) {
+    const centerX = (gElCanvas.width - 90) / 2
+    const centerY = gElCanvas.height / 2
+    _createLine(centerX, centerY)
+}
+
+function deleteLine() {
+    const currIdx = gMeme.selectedLineIdx
+    gMeme.lines.splice(currIdx, 1)
 }
 
 function switchLine(x, y) {
@@ -51,12 +58,20 @@ function _getCurrLine() {
     return gMeme.lines[currIdx]
 }
 
-function _createLine() {
-    return {
+function createLines(gElCanvas) {
+    const centerX = (gElCanvas.width - 40) / 2
+    _createLine(centerX, 30)
+    _createLine(centerX, (gElCanvas.height - 80))
+}
+
+function _createLine(posX, posY) {
+    gMeme.lines.push({
         txt: 'Write here',
         size: 20,
         color: 'white',
         font: 'Impact',
-    }
+        posX,
+        posY,
+    })
 }
 

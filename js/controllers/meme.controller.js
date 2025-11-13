@@ -1,7 +1,7 @@
 'use strict'
 
-const gElCanvas = document.querySelector('canvas')
-const gCtx = gElCanvas.getContext('2d')
+let gElCanvas
+let gCtx
 
 function onResize() {
     resizeCanvas()
@@ -27,20 +27,12 @@ function renderMeme() {
 }
 
 function renderTxt(lines) {
-    lines.forEach((line, idx) => {
-
+    lines.forEach((line) => {
         gCtx.font = `${line.size}px ${line.font}`
         gCtx.fillStyle = line.color
+        gCtx.fillText(line.txt, line.posX, line.posY)
 
         line.width = gCtx.measureText(line.txt).width
-        const center = (gElCanvas.width - line.width) / 2
-        line.posX = center
-
-        if (idx === 0) line.posY = 30
-        else if (idx === 1) line.posY = gElCanvas.height - 30
-        else line.posY = gElCanvas.height / 2
-
-        gCtx.fillText(line.txt, line.posX, line.posY)
     })
 
     selectLine()
@@ -49,6 +41,8 @@ function renderTxt(lines) {
 function selectLine() {
     const { selectedLineIdx, lines } = getMeme()
     const currLine = lines[selectedLineIdx]
+
+    if (!currLine) return
 
     const x = currLine.posX
     const lineHeight = -currLine.size * 1.5
@@ -65,8 +59,21 @@ function onDown(ev) {
 }
 
 function onAddLine() {
-    addLine()
+    addLine(gElCanvas, gCtx)
     renderMeme()
+}
+
+function onDeleteLine() {
+    deleteLine()
+    renderMeme()
+}
+
+function onMoveUp() {
+
+}
+
+function onMoveDown() {
+
 }
 
 function onSetTxt(elTxtInput) {
@@ -95,3 +102,7 @@ function onDownloadMeme(elLink) {
     elLink.href = dataUrl
     elLink.download = 'my-canvas'
 }
+
+// line.width = gCtx.measureText(line.txt).width
+//     const center = (gElCanvas.width - line.width) / 2
+//     line.posX = center
