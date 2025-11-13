@@ -20,7 +20,7 @@ function addLine(gElCanvas) {
     _createLine(centerX, centerY)
 }
 
-function deleteLine() {
+function removeLine() {
     const currIdx = gMeme.selectedLineIdx
     gMeme.lines.splice(currIdx, 1)
 }
@@ -31,6 +31,21 @@ function switchLine(x, y) {
             && y <= line.posY && y >= line.posY - line.size
     })
     if (idx !== -1) gMeme.selectedLineIdx = idx
+}
+
+function moveLine(diff) {
+    const currLine = _getCurrLine()
+    currLine.posY += diff
+}
+
+function alignLine(dir, gElCanvas) {
+    const currLine = _getCurrLine()
+    let posX
+    if (dir === 'left') posX = 10
+    else if (dir === 'right') posX = gElCanvas.width - currLine.width - 10
+    else posX = (gElCanvas.width - currLine.width) / 2
+
+    currLine.posX = posX
 }
 
 function setTxt(txt) {

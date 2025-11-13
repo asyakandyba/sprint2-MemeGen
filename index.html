@@ -35,8 +35,11 @@
             <div class="line-btns">
                 <button onclick="onAddLine()">Add line</button>
                 <button onclick="onDeleteLine()">Delete line</button>
-                <button onclick="onMoveUp()">UP</button>
-                <button onclick="onMoveDown()">Down</button>
+                <button onclick="onMoveLine(this)" data-dir="up">UP</button>
+                <button onclick="onMoveLine(this)" data-dir="down">Down</button>
+                <button onclick="onAlignLine(this)" data-dir="left">left</button>
+                <button onclick="onAlignLine(this)" data-dir="right">right</button>
+                <button onclick="onAlignLine(this)" data-dir="center">center</button>
             </div>
 
             <div class="txt-btns">

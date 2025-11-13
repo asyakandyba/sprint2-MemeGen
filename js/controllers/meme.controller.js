@@ -64,16 +64,25 @@ function onAddLine() {
 }
 
 function onDeleteLine() {
-    deleteLine()
+    removeLine()
     renderMeme()
 }
 
-function onMoveUp() {
-
+function onMoveLine(elBtn) {
+    const diff = elBtn.dataset.dir === 'up' ? -5 : 5
+    moveLine(diff)
+    renderMeme()
 }
 
-function onMoveDown() {
+function onAlignLine(elBtn){
+    const dir = elBtn.dataset.dir
+    alignLine(dir, gElCanvas)
+    renderMeme()
+}
 
+function onSetFunc(func) {
+    func()
+    renderMeme()
 }
 
 function onSetTxt(elTxtInput) {
