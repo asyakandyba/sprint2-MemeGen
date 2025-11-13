@@ -29,8 +29,6 @@ function renderMeme() {
 function renderTxt(lines) {
     lines.forEach((line, idx) => {
 
-        console.log('line.font:', line.font)
-
         gCtx.font = `${line.size}px ${line.font}`
         gCtx.fillStyle = line.color
 

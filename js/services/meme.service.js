@@ -42,7 +42,6 @@ function setTxtSize(diff) {
 }
 
 function setTxtFont(font) {
-    console.log('font:', font)
     const currLine = _getCurrLine()
     currLine.font = font
 }
