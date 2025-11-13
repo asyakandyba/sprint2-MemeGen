@@ -6,4 +6,8 @@
     padding: 1rem;
     border-radius: 1rem;
     background-color: var(--clr-primary-base);
+
+    img {
+        border-radius: 1rem;
+    }
 }

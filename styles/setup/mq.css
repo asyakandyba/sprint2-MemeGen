@@ -58,10 +58,10 @@
 @media (min-width: 800px) {
     .editor {
         justify-content: space-evenly;
-        height: 70vh;
+        height: 75vh;
 
         >.canvas-container {
-            width: 50%;
+            width: 40%;
         }
     }
 
