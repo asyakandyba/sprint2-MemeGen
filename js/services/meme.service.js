@@ -1,7 +1,7 @@
 'use strict'
 
 const gMeme = {
-    selectedImgId: 0,
+    selectedImgId: 1,
     selectedLineIdx: 0,
     lines: []
 }

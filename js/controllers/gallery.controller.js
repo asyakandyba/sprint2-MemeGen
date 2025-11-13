@@ -11,8 +11,10 @@ function renderGallery() {
 
 function onImgSelect(id) {
     setImg(id)
+    
     document.querySelector('.editor').classList.remove('hidden')
     document.querySelector('.gallery').classList.add('hidden')
+    
     onResize()
     createLines(gElCanvas)
 }
