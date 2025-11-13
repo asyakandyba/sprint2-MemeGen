@@ -3,6 +3,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
 
+    padding: 1rem;
     border-radius: 1rem;
     background-color: var(--clr-primary-base);
 }

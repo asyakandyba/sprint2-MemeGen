@@ -1,0 +1,10 @@
+.open-menu-btn {
+    border: none;
+    background-color: var(--clr-secondary);
+    margin-inline: 2rem;
+
+    color: inherit;
+    font-size: 25px;
+
+    cursor: pointer;
+}

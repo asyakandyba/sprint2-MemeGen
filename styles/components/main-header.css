@@ -13,9 +13,5 @@
 
     >nav {
         padding-inline: 2rem;
-
-        >* {
-            margin: 1rem;
-        }
     }
 }
