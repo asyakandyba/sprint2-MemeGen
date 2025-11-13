@@ -1,6 +1,7 @@
 .edit-container {
     display: grid;
-    align-items: center;
+    place-items: center;
+    gap: 2rem;
 
     >input{
         border-radius: 1.5rem;

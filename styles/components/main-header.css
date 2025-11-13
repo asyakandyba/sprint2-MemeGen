@@ -1,11 +1,9 @@
 .main-header {
-    display: flex;
     justify-content: space-between;
     align-items: center;
 
     background-color: var(--clr-secondary);
-    margin-inline: 1rem;
-    margin-block: 2rem;
+    margin: 1rem;
     border-radius: 3rem;
 
     >img {

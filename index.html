@@ -10,9 +10,9 @@
 
 <body onload="onInit()" onresize="onResize()" class="main-layout">
 
-    <header class="main-header">
-
+    <header class="main-header flex full">
         <img class="logo" src="img/logo.png">
+
         <nav>
             <a href="index.html">Gallery</a>
             <a href="#">Saved</a>
@@ -21,13 +21,13 @@
 
     <section class="gallery"></section>
 
-    <section class="editor hidden">
+    <section class="editor flex hidden">
         <div class="canvas-container">
             <canvas width="400" height="400" onmousedown="onDown(event)"></canvas>
         </div>
 
         <div class="edit-container">
-            <input type="text" oninput="onSetTxt(this)">
+            <input type="text" placeholder="Write here" oninput="onSetTxt(this)">
 
             <div class="line-btns">
                 <button onclick="onAddLine()">Add line</button>
