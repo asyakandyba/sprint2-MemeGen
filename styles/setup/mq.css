@@ -61,7 +61,7 @@
         height: 75vh;
 
         >.canvas-container {
-            width: 50%;
+            width: 50vw;
         }
     }
 
