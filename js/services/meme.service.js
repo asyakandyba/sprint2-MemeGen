@@ -17,7 +17,7 @@ function setImg(id) {
 function addLine(gElCanvas, txt) {
     const centerX = (gElCanvas.width - 90) / 2
     const centerY = gElCanvas.height / 2
-    _createLine(centerX, centerY, txt)
+    gMeme.lines.push(_createLine(centerX, centerY, txt))
     gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
@@ -76,18 +76,20 @@ function _getCurrLine() {
 
 function createLines(gElCanvas) {
     const centerX = (gElCanvas.width - 90) / 2
-    _createLine(centerX, 30)
-    _createLine(centerX, (gElCanvas.height - 30))
+    gMeme.lines = [
+        _createLine(centerX, 30),
+        _createLine(centerX, (gElCanvas.height - 30))
+    ]
 }
 
 function _createLine(posX, posY, txt = 'Write here') {
-    gMeme.lines.push({
+    return {
         txt,
         size: 20,
         color: 'white',
         font: 'Impact',
         posX,
         posY,
-    })
+    }
 }
 

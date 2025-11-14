@@ -18,4 +18,12 @@ function onImgSelect(id) {
 
     onResize()
     createLines(gElCanvas)
+    renderMeme()
+}
+
+function onRandomMeme() {
+    const length = getImgs().length
+    const randId = getRandomInt(1, length)
+    console.log('randId:', randId)
+    onImgSelect(randId)
 }

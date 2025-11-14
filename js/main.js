@@ -6,7 +6,6 @@ function onInit() {
 
     onResize()
     renderGallery()
-
 }
 
 function toggleMenu() {
