@@ -59,7 +59,7 @@ function onDown(ev) {
 }
 
 function onAddLine() {
-    addLine(gElCanvas, gCtx)
+    addLine(gElCanvas)
     renderMeme()
 }
 
@@ -99,6 +99,37 @@ function onSetSize(elSizeInput) {
 function onSetFont(elFontInput) {
     setTxtFont(elFontInput.value)
     renderMeme()
+}
+
+function onSetEmoji(elEmoji){
+    addLine(gElCanvas, elEmoji.innerText)
+    renderMeme()
+}
+
+function onImgInput(ev) {
+    loadImageFromInput(ev, renderImg)
+
+    document.querySelector('.main-gallery').classList.add('hidden')
+    document.querySelector('.editor').classList.remove('hidden')
+}
+
+function loadImageFromInput(ev, onImageReady) {
+    const reader = new FileReader()
+
+    reader.onload = function (event) {
+        const img = new Image()
+        img.onload = () => {
+            onImageReady(img)
+        }
+        img.src = event.target.result
+    }
+    reader.readAsDataURL(ev.target.files[0])
+}
+
+function renderImg(img) {
+    console.log('img:', img)
+    gElCanvas.height = (img.naturalHeight / img.naturalWidth) * gElCanvas.width
+    gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 }
 
 function onDownloadMeme(elLink) {

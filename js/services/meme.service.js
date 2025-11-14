@@ -14,10 +14,10 @@ function setImg(id) {
     gMeme.selectedImgId = id
 }
 
-function addLine(gElCanvas) {
+function addLine(gElCanvas, txt) {
     const centerX = (gElCanvas.width - 90) / 2
     const centerY = gElCanvas.height / 2
-    _createLine(centerX, centerY)
+    _createLine(centerX, centerY, txt)
 }
 
 function removeLine() {
@@ -79,9 +79,9 @@ function createLines(gElCanvas) {
     _createLine(centerX, (gElCanvas.height - 30))
 }
 
-function _createLine(posX, posY) {
+function _createLine(posX, posY, txt = 'Write here') {
     gMeme.lines.push({
-        txt: 'Write here',
+        txt,
         size: 20,
         color: 'white',
         font: 'Impact',

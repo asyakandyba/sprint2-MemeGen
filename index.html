@@ -94,13 +94,21 @@
                 </select>
             </div>
 
+            <div class="emojis flex">
+                <p onclick="onSetEmoji(this)">😂</p>
+                <p onclick="onSetEmoji(this)">💩</p>
+                <p onclick="onSetEmoji(this)">😫</p>
+                <p onclick="onSetEmoji(this)">🥵</p>
+                <p onclick="onSetEmoji(this)">🤡</p>
+            </div>
+
             <div class="export flex">
                 <form method="POST" enctype="multipart/form-data" onsubmit="onShareImg(event)">
                     <button class="btn" type="submit">Share to facebook</button>
                 </form>
-                
+
                 <button class="btn" onclick="onSaveMeme()">Save picture</button>
-                
+
                 <a href="#" onclick="onDownloadMeme(this)" download="file-name">Download</a>
             </div>
         </div>
