@@ -18,6 +18,7 @@ function addLine(gElCanvas, txt) {
     const centerX = (gElCanvas.width - 90) / 2
     const centerY = gElCanvas.height / 2
     _createLine(centerX, centerY, txt)
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
 function removeLine() {
@@ -74,7 +75,7 @@ function _getCurrLine() {
 }
 
 function createLines(gElCanvas) {
-    const centerX = (gElCanvas.width - 46) / 2 //46 is the width of the starting line
+    const centerX = (gElCanvas.width - 90) / 2
     _createLine(centerX, 30)
     _createLine(centerX, (gElCanvas.height - 30))
 }
