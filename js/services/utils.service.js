@@ -1,5 +1,7 @@
 'use strict'
 
-function getId() {
-  return Math.random().toString(36).substring(2, 9) + Date.now().toString(36)
+function getRandomInt(min, max) {
+  const minCeiled = Math.ceil(min)
+  const maxFloored = Math.floor(max)
+  return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled)
 }

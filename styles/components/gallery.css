@@ -10,4 +10,14 @@
     img {
         border-radius: 1rem;
     }
+
+    >.savedMeme {
+        position: relative;
+
+        button {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
 }

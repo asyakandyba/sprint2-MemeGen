@@ -15,14 +15,14 @@
 
         <nav class="flex">
             <button class="close-menu-btn" onclick="toggleMenu()">✖</button>
-            <a href="index.html">Gallery</a>
-            <a href="#">Saved</a>
+            <a href="index.html" onclick="toggleMenu()">Gallery</a>
+            <a href="#" onclick="openSavedGallery(), toggleMenu()">Saved</a>
         </nav>
 
         <button class="open-menu-btn" onclick="toggleMenu()">☰</button>
     </header>
 
-    <section class="gallery"></section>
+    <section class="main-gallery gallery"></section>
 
     <section class="editor hidden">
         <div class="canvas-container">
@@ -99,7 +99,7 @@
                     <button class="btn" type="submit">Share to facebook</button>
                 </form>
                 
-                <button class="btn" onclick="onSavePic()">Save picture</button>
+                <button class="btn" onclick="onSaveMeme()">Save picture</button>
                 
                 <a href="#" onclick="onDownloadMeme(this)" download="file-name">Download</a>
             </div>
@@ -107,13 +107,17 @@
     </section>
 
 
-    <section slass="saves-memes"></section>
+    <section class="saved-gallery gallery hidden"></section>
 
     <script src="js/main.js"></script>
+    <script src="js/services/utils.service.js"></script>
+    <script src="js/services/storage.service.js"></script>
     <script src="js/services/meme.service.js"></script>
     <script src="js/services/gallery.service.js"></script>
+    <script src="js/services/saved.service.js"></script>
     <script src="js/controllers/meme.controller.js"></script>
     <script src="js/controllers/gallery.controller.js"></script>
+    <script src="js/controllers/saved.controller.js"></script>
 </body>
 
 </html>
