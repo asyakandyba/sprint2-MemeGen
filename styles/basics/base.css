@@ -16,10 +16,24 @@ img {
 }
 
 a {
+    margin: 1rem;
+    padding: .5rem;
+    border-radius: 2rem;
+    
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
-    margin: 1rem;
+
+    transition: .3s;
+
+    &:hover{
+        background-color: var(--txt-clr);
+        color: var(--clr-secondary)
+    }
+}
+
+label {
+    cursor: pointer;
 }
 
 canvas {
@@ -28,6 +42,18 @@ canvas {
 }
 
 select{
-    height: 1.5rem;
-    width: 10rem;
+    height: 2rem;
+    width: 11rem;
+
+    border-radius: .3rem;
+    cursor: pointer;
+}
+
+
+button{
+    cursor: pointer;
+
+    &:hover{
+        background-color: var(--txt-clr);
+    }
 }

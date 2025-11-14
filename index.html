@@ -62,7 +62,7 @@
                 </button>
             </div>
 
-            <div class="txt-btns">
+            <div class="txt-btns flex">
                 <button>
                     <label for="color">
                         <img class="color-picker" src="img/color-picker.png">
@@ -94,7 +94,12 @@
                 </select>
             </div>
 
-            <a href="#" onclick="onDownloadMeme(this)" download="file-name">📥Download</a>
+            <div class="export flex">
+                <a href="#" onclick="onDownloadMeme(this)" download="file-name">📥Download</a>
+                <form method="POST" enctype="multipart/form-data" onsubmit="onShareImg(event)">
+                    <button class="btn" type="submit">Share to facebook</button>
+                </form>
+            </div>
         </div>
     </section>
 

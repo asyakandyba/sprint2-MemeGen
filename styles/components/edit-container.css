@@ -3,9 +3,13 @@
     place-items: center;
     gap: 2rem;
 
-    >input{
+    >input {
         border-radius: 1.5rem;
-        padding: 0.5rem;
-        width: 15rem;
+        padding: .7rem;
+        width: 100%;
+    }
+
+    >.txt-btns {
+        gap: 5px;
     }
 }
