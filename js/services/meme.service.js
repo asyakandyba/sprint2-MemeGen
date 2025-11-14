@@ -26,17 +26,23 @@ function removeLine() {
     gMeme.lines.splice(currIdx, 1)
 }
 
-function switchLine(x, y) {
+function getLine(x, y) {
     const idx = gMeme.lines.findIndex(line => {
         return x >= line.posX && x <= line.posX + line.width
             && y <= line.posY && y >= line.posY - line.size
     })
-    if (idx !== -1) gMeme.selectedLineIdx = idx
+    if (idx !== -1) {
+        gMeme.selectedLineIdx = idx
+        return true
+    } else {
+        return false
+    }
 }
 
-function moveLine(diff) {
+function moveLine(dx, dy) {
     const currLine = _getCurrLine()
-    currLine.posY += diff
+    currLine.posX += dx
+    currLine.posY += dy
 }
 
 function alignLine(dir, gElCanvas) {

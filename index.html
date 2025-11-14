@@ -27,7 +27,8 @@
 
     <section class="editor hidden">
         <div class="canvas-container">
-            <canvas width="400" height="400" onmousedown="onDown(event)"></canvas>
+            <canvas width="400" height="400" onmousedown="onDown(event)" ontouchstart="onDown(event)" onmouseup="onUp()"
+                ontouchend="onUp()" onmousemove="onMoveLine(event)" ontouchmove="onMoveLine(event)"></canvas>
         </div>
 
         <div class="edit-container">
@@ -40,14 +41,6 @@
 
                 <button onclick="onDeleteLine()">
                     <img src="img/delete.png">
-                </button>
-
-                <button onclick="onMoveLine(this)" data-dir="up">
-                    <img src="img/up.png">
-                </button>
-
-                <button onclick="onMoveLine(this)" data-dir="down">
-                    <img src="img/down.png">
                 </button>
 
                 <button onclick="onAlignLine(this)" data-dir="left">

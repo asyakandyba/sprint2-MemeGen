@@ -3,6 +3,9 @@
 let gElCanvas
 let gCtx
 
+let gStartPos
+let isLineDrag = false
+
 function onResize() {
     resizeCanvas()
     renderMeme()
@@ -52,10 +55,33 @@ function selectLine() {
 }
 
 function onDown(ev) {
-    const { offsetX, offsetY } = ev
+    const pos = getEvPos(ev)
 
-    switchLine(offsetX, offsetY)
+    const isLine = getLine(pos.x, pos.y)
+    if (!isLine) return
+
+    isLineDrag = true
+    gStartPos = pos
+
     renderMeme()
+}
+
+function onMoveLine(ev) {
+    if (!isLineDrag) return
+
+    const pos = getEvPos(ev)
+
+    const dx = pos.x - gStartPos.x
+    const dy = pos.y - gStartPos.y
+    moveLine(dx, dy)
+
+    gStartPos = pos
+    renderMeme()
+}
+
+function onUp() {
+    isLineDrag = false
+    //   document.body.style.cursor = 'grab'
 }
 
 function onAddLine() {
@@ -65,12 +91,6 @@ function onAddLine() {
 
 function onDeleteLine() {
     removeLine()
-    renderMeme()
-}
-
-function onMoveLine(elBtn) {
-    const diff = elBtn.dataset.dir === 'up' ? -5 : 5
-    moveLine(diff)
     renderMeme()
 }
 
@@ -101,7 +121,7 @@ function onSetFont(elFontInput) {
     renderMeme()
 }
 
-function onSetEmoji(elEmoji){
+function onSetEmoji(elEmoji) {
     addLine(gElCanvas, elEmoji.innerText)
     renderMeme()
 }
