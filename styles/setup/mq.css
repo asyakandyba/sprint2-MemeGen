@@ -71,6 +71,12 @@
         display: none;
     }
 
+    .main-header{
+        >img{
+            width: 25vh;
+        }
+    }
+
     .gallery {
         grid-template-columns: repeat(4, 1fr);
     }

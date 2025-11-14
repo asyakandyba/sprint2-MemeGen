@@ -95,15 +95,19 @@
             </div>
 
             <div class="export flex">
-                <a href="#" onclick="onDownloadMeme(this)" download="file-name">📥Download</a>
                 <form method="POST" enctype="multipart/form-data" onsubmit="onShareImg(event)">
                     <button class="btn" type="submit">Share to facebook</button>
                 </form>
+                
+                <button class="btn" onclick="onSavePic()">Save picture</button>
+                
+                <a href="#" onclick="onDownloadMeme(this)" download="file-name">Download</a>
             </div>
         </div>
     </section>
 
-    <footer></footer>
+
+    <section slass="saves-memes"></section>
 
     <script src="js/main.js"></script>
     <script src="js/services/meme.service.js"></script>

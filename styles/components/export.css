@@ -1,22 +1,26 @@
 .export {
     align-items: center;
+
     >form {
         >.btn {
-            padding: 0.5rem;
+            background-color: #31b7f4;
 
-            background-color: var(--clr-secondary);
-            border: none;
-            border-radius: 1rem;
-
-            color:inherit;
-            font-size: 1.1rem;
-
-            transition: .3s;
-
-            &:hover{
-                background-color: var(--txt-clr);
-                color: var(--clr-secondary);
+            &:hover {
+                background-color: white;
+                color: #31b7f4;
             }
+        }
+    }
+
+    >a {
+        background-color: #f4c235;
+        padding-inline: 1rem;
+        padding-block: .4rem;
+
+        margin: .5rem;
+
+        &:hover {
+            color: #f4c235;
         }
     }
 }
