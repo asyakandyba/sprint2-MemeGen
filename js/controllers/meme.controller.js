@@ -100,7 +100,6 @@ function onUp() {
     isLineDrag = false
 
     const elCanvas = document.querySelector('canvas')
-    elCanvas.focus()
     elCanvas.style.cursor = 'grab'
 }
 
