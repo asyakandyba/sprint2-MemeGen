@@ -5,7 +5,6 @@ function onInit() {
     gCtx = gElCanvas.getContext('2d')
 
     createLines()
-    console.log('lines:', gMeme.lines)
     onResize()
     renderGallery()
 }

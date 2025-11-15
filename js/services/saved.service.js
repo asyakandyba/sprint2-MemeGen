@@ -24,7 +24,7 @@ function removeMeme(id) {
 }
 
 function _createMeme(data) {
-    gSavedMemes.unshift({ id: getRandomInt(100, 1000), data })
+    gSavedMemes.unshift({ id: getRandomInt(100, 1000), data, gMeme: getMeme() })
     _saveMemeToStorage()
 }
 

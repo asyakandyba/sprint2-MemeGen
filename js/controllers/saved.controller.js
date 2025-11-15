@@ -27,6 +27,15 @@ function onSaveMeme() {
     renderSavedMemes()
 }
 
+function onSelectMeme(id){
+    const currMeme = getMemeById(id)
+    setMeme(currMeme.gMeme)
+    renderMeme()
+
+    document.querySelector('.saved-gallery').classList.add('hidden')
+    document.querySelector('.editor').classList.remove('hidden')
+}
+
 function onRemoveMeme(id, ev) {
     ev.stopPropagation()
 

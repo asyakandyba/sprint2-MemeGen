@@ -1,6 +1,6 @@
 'use strict'
 
-const gMeme = {
+let gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
     lines: []
@@ -8,6 +8,10 @@ const gMeme = {
 
 function getMeme() {
     return gMeme
+}
+
+function setMeme(meme){
+    gMeme = meme
 }
 
 function setImg(id) {
