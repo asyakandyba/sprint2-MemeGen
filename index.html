@@ -16,7 +16,7 @@
         <nav class="flex">
             <button class="close-menu-btn" onclick="toggleMenu()">✖</button>
             <a href="#" onclick="openSavedGallery(), toggleMenu()">Saved</a>
-            <a href="#" onclick="onRandomMeme()">Random</a>
+            <a href="#" onclick="onRandomMeme(), toggleMenu()">Random</a>
             <a href="index.html" onclick="toggleMenu()">Gallery</a>
         </nav>
 
@@ -108,8 +108,8 @@
         </div>
     </section>
 
-
     <section class="saved-gallery gallery hidden"></section>
+
 
     <script src="js/main.js"></script>
     <script src="js/services/utils.service.js"></script>

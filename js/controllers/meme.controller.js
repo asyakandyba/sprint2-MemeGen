@@ -18,16 +18,16 @@ function resizeCanvas() {
 }
 
 function renderMeme() {
-    const { selectedImgId, lines } = getMeme()
+    const { selectedImgId } = getMeme()
 
     const img = new Image()
     img.src = `img/${selectedImgId}.jpg`
 
     img.onload = () => {
         renderImg(img)
-        if (isImgSelected) {
+        if (gIsImgSelected) {
             placeTxt()
-            isImgSelected = false
+            gIsImgSelected = false
         }
         renderTxt()
         selectLine()
@@ -44,6 +44,7 @@ function renderTxt() {
 
         line.width = gCtx.measureText(line.txt).width
     })
+
     const elTxt = document.querySelector('[name="txt"]');
     if (lines.length) elTxt.value = lines[selectedLineIdx].txt
 }
@@ -63,11 +64,11 @@ function selectLine() {
 
     if (!currLine) return
 
-    const x = currLine.posX
+    const x = currLine.posX - 5
     const lineHeight = -currLine.size * 1.5
     const y = currLine.posY - (lineHeight / 4)
 
-    gCtx.strokeRect(x, y, currLine.width, lineHeight)
+    gCtx.strokeRect(x, y, currLine.width + 10, lineHeight)
 }
 
 function onDown(ev) {
@@ -98,9 +99,7 @@ function onMoveLine(ev) {
 
 function onUp() {
     isLineDrag = false
-
-    const elCanvas = document.querySelector('canvas')
-    elCanvas.style.cursor = 'grab'
+    document.querySelector('canvas').style.cursor = 'grab'
 }
 
 function onAddLine() {
@@ -123,7 +122,7 @@ function onSetTxt(ev) {
     const elEditor = document.querySelector('.editor')
     if (elEditor.classList.contains('hidden')) return
 
-    if(ev.code === 'Space') ev.preventDefault()
+    if (ev.code === 'Space') ev.preventDefault()
 
     setTxt(ev.key)
     renderMeme()
@@ -199,7 +198,6 @@ function onShareImg(ev) {
 
 
 // on submit call to this function
-
 async function uploadImg(imgData, onSuccess) {
     const CLOUD_NAME = 'webify'
     const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`

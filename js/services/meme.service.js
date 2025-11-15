@@ -10,7 +10,7 @@ function getMeme() {
     return gMeme
 }
 
-function setMeme(meme){
+function setMeme(meme) {
     gMeme = meme
 }
 
@@ -21,7 +21,9 @@ function setImg(id) {
 function addLine(gElCanvas, txt, width = 90) {
     const centerX = (gElCanvas.width - width) / 2
     const centerY = gElCanvas.height / 2
+
     gMeme.lines.push(_createLine(centerX, centerY, txt))
+
     gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
@@ -35,6 +37,7 @@ function getLine(x, y) {
         return x >= line.posX && x <= line.posX + line.width
             && y <= line.posY && y >= line.posY - line.size
     })
+
     if (idx !== -1) {
         gMeme.selectedLineIdx = idx
         return true
@@ -52,6 +55,7 @@ function moveLine(dx, dy) {
 function alignLine(dir, gElCanvas) {
     const currLine = _getCurrLine()
     let posX
+
     if (dir === 'left') posX = 10
     else if (dir === 'right') posX = gElCanvas.width - currLine.width - 10
     else posX = (gElCanvas.width - currLine.width) / 2
@@ -60,10 +64,9 @@ function alignLine(dir, gElCanvas) {
 }
 
 function setTxt(key) {
-    // console.log('key:', key.length)
     const currLine = _getCurrLine()
 
-    if(currLine.txt === 'Write here') return currLine.txt = key
+    if (currLine.txt === 'Write here') return currLine.txt = key
 
     if (key === 'Backspace') return currLine.txt = currLine.txt.slice(0, -1)
     else if (key.length > 1) return
