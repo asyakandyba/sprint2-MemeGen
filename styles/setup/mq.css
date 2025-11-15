@@ -69,9 +69,16 @@
     .close-menu-btn {
         display: none;
     }
-    
+
     .gallery {
         grid-template-columns: repeat(4, 1fr);
     }
 
+    button {
+        padding: 1rem;
+    }
+
+    p{
+        font-size: 4rem;;
+    }
 }
