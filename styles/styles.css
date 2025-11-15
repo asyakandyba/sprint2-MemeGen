@@ -4,10 +4,11 @@
 
 /* COMPONENTS */
 @import url('../styles/components/main-header.css');
+@import url('../styles/components/open-menu-btn.css');
+@import url('../styles/components/search.css');
 @import url('../styles/components/gallery.css');
 @import url('../styles/components/editor.css');
 @import url('../styles/components/edit-container.css');
-@import url('../styles/components/open-menu-btn.css');
 @import url('../styles/components/export.css');
 
 /* BASICS */

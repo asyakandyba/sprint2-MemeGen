@@ -62,8 +62,6 @@ function selectLine() {
     const { selectedLineIdx, lines } = getMeme()
     const currLine = lines[selectedLineIdx]
 
-    if (!currLine) return
-
     const x = currLine.posX - 5
     const lineHeight = -currLine.size * 1.5
     const y = currLine.posY - (lineHeight / 4)
@@ -148,26 +146,6 @@ function onSetEmoji(elEmoji) {
     const lineWidth = gCtx.measureText(elEmoji.innerText).width
     addLine(gElCanvas, elEmoji.innerText, lineWidth)
     renderMeme()
-}
-
-function onImgInput(ev) {
-    loadImageFromInput(ev, renderImg)
-
-    document.querySelector('.main-gallery').classList.add('hidden')
-    document.querySelector('.editor').classList.remove('hidden')
-}
-
-function loadImageFromInput(ev, onImageReady) {
-    const reader = new FileReader()
-
-    reader.onload = function (event) {
-        const img = new Image()
-        img.onload = () => {
-            onImageReady(img)
-        }
-        img.src = event.target.result
-    }
-    reader.readAsDataURL(ev.target.files[0])
 }
 
 function renderImg(img) {

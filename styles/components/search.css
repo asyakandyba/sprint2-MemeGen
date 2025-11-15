@@ -1,0 +1,12 @@
+.search {
+    margin-block-end: 1rem;
+
+    >label {
+        >input {
+            width: 50vw;
+            padding: .5rem;
+            border-radius: 1rem;
+            background-color: var(--clr-primery-base);
+        }
+    }
+}

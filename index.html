@@ -23,7 +23,26 @@
         <button class="open-menu-btn" onclick="toggleMenu()">☰</button>
     </header>
 
-    <section class="main-gallery gallery"></section>
+    <section class="search">
+        <label>
+            <input list="keywords" name="search" placeholder="🔎︎search" oninput="onSetFilterBy(this.value)">
+        </label>
+        <datalist id="keywords">
+            <option>dog</option>
+            <option>kids</option>
+            <option>politician</option>
+            <option>funny</option>
+            <option>animation</option>
+            <option>cute</option>
+            <option>happy</option>
+            <option>hand gestures</option>
+            <option>romance</option>
+            <option>movie</option>
+        </datalist>
+    </section>
+
+    <section class="main-gallery gallery">
+    </section>
 
     <section class="editor hidden">
         <div class="canvas-container">
