@@ -8,7 +8,7 @@ function renderGallery() {
         `<div class="meme" onclick="onImgSelect(${img.id})">
         <img src="${img.url}">
     </div>`)
-    document.querySelector('.main-gallery').innerHTML += strHTMLs.join('')
+    document.querySelector('.main-gallery').innerHTML = strHTMLs.join('')
 }
 
 function onImgSelect(id) {

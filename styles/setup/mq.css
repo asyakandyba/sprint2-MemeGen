@@ -2,7 +2,7 @@
 @media (max-width: 800px) {
     .editor {
         flex-direction: column;
-        gap: 5px;
+        gap: 30px;
 
         >.canvas-container {
             width: 300px;
