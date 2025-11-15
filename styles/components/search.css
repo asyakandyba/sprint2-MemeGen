@@ -4,8 +4,8 @@
     >label {
         >input {
             width: 50vw;
-            padding: .5rem;
-            border-radius: 1rem;
+            padding: 1rem;
+            border-radius: 2rem;
             background-color: var(--clr-primery-base);
         }
     }
