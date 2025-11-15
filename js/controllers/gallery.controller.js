@@ -1,5 +1,7 @@
 'use strict'
 
+let isImgSelected = false
+
 function renderGallery() {
     const imgs = getImgs()
     const strHTMLs = imgs.map(img =>
@@ -11,14 +13,13 @@ function renderGallery() {
 
 function onImgSelect(id) {
     setImg(id)
+    isImgSelected = true
 
     document.querySelector('.editor').classList.remove('hidden')
     document.querySelector('.main-gallery').classList.add('hidden')
     document.querySelector('.saved-gallery').classList.add('hidden')
 
     onResize()
-    createLines(gElCanvas)
-    renderMeme()
 }
 
 function onRandomMeme() {

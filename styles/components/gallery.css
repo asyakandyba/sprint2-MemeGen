@@ -1,6 +1,7 @@
 .gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
     gap: 1.5rem;
 
     padding: 1rem;
@@ -9,6 +10,10 @@
 
     img {
         border-radius: 1rem;
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     >.savedMeme {

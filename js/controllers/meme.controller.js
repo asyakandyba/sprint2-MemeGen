@@ -24,21 +24,33 @@ function renderMeme() {
     img.src = `img/${selectedImgId}.jpg`
 
     img.onload = () => {
-        gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
+        renderImg(img)
+        if (isImgSelected) {
+            placeTxt()
+            isImgSelected = false
+        }
         renderTxt(lines)
+        selectLine()
     }
 }
 
 function renderTxt(lines) {
-    lines.forEach((line) => {
+    lines.forEach(line => {
         gCtx.font = `${line.size}px ${line.font}`
         gCtx.fillStyle = line.color
         gCtx.fillText(line.txt, line.posX, line.posY)
 
         line.width = gCtx.measureText(line.txt).width
     })
+}
 
-    selectLine()
+function placeTxt() {
+    const { lines } = getMeme()
+
+    lines.forEach((line, idx) => {
+        line.posX = (gElCanvas.width - line.width) / 2
+        line.posY = idx === 0 ? 40 : gElCanvas.height - 20
+    })
 }
 
 function selectLine() {
@@ -63,6 +75,7 @@ function onDown(ev) {
     isLineDrag = true
     gStartPos = pos
 
+    document.querySelector('canvas').style.cursor = 'grabbing'
     renderMeme()
 }
 
@@ -81,7 +94,7 @@ function onMoveLine(ev) {
 
 function onUp() {
     isLineDrag = false
-    //   document.body.style.cursor = 'grab'
+    document.querySelector('canvas').style.cursor = 'grab'
 }
 
 function onAddLine() {
@@ -122,7 +135,8 @@ function onSetFont(elFontInput) {
 }
 
 function onSetEmoji(elEmoji) {
-    addLine(gElCanvas, elEmoji.innerText)
+    const lineWidth = gCtx.measureText(elEmoji.innerText).width
+    addLine(gElCanvas, elEmoji.innerText, lineWidth)
     renderMeme()
 }
 
@@ -147,7 +161,6 @@ function loadImageFromInput(ev, onImageReady) {
 }
 
 function renderImg(img) {
-    console.log('img:', img)
     gElCanvas.height = (img.naturalHeight / img.naturalWidth) * gElCanvas.width
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 }

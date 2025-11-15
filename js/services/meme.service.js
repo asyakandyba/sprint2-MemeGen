@@ -14,8 +14,8 @@ function setImg(id) {
     gMeme.selectedImgId = id
 }
 
-function addLine(gElCanvas, txt) {
-    const centerX = (gElCanvas.width - 90) / 2
+function addLine(gElCanvas, txt, width = 90) {
+    const centerX = (gElCanvas.width - width) / 2
     const centerY = gElCanvas.height / 2
     gMeme.lines.push(_createLine(centerX, centerY, txt))
     gMeme.selectedLineIdx = gMeme.lines.length - 1
@@ -80,11 +80,10 @@ function _getCurrLine() {
     return gMeme.lines[currIdx]
 }
 
-function createLines(gElCanvas) {
-    const centerX = (gElCanvas.width - 90) / 2
+function createLines() {
     gMeme.lines = [
-        _createLine(centerX, 30),
-        _createLine(centerX, (gElCanvas.height - 30))
+        _createLine(),
+        _createLine()
     ]
 }
 
