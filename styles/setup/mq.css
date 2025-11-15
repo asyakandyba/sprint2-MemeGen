@@ -69,13 +69,7 @@
     .close-menu-btn {
         display: none;
     }
-
-    .main-header{
-        >img{
-            width: 15vh;
-        }
-    }
-
+    
     .gallery {
         grid-template-columns: repeat(4, 1fr);
     }

@@ -120,10 +120,10 @@ function onAlignLine(elBtn) {
 }
 
 function onSetTxt(ev) {
-    ev.preventDefault()
-
     const elEditor = document.querySelector('.editor')
     if (elEditor.classList.contains('hidden')) return
+
+    if(ev.code === 'Space') ev.preventDefault()
 
     setTxt(ev.key)
     renderMeme()

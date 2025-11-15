@@ -56,6 +56,7 @@ function alignLine(dir, gElCanvas) {
 }
 
 function setTxt(key) {
+    // console.log('key:', key.length)
     const currLine = _getCurrLine()
 
     if(currLine.txt === 'Write here') return currLine.txt = key
