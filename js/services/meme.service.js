@@ -55,9 +55,15 @@ function alignLine(dir, gElCanvas) {
     currLine.posX = posX
 }
 
-function setTxt(txt) {
+function setTxt(key) {
     const currLine = _getCurrLine()
-    currLine.txt = txt
+
+    if(currLine.txt === 'Write here') return currLine.txt = key
+
+    if (key === 'Backspace') return currLine.txt = currLine.txt.slice(0, -1)
+    else if (key.length > 1) return
+
+    currLine.txt += key
 }
 
 function setTxtColor(clr) {

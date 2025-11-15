@@ -29,12 +29,14 @@ function renderMeme() {
             placeTxt()
             isImgSelected = false
         }
-        renderTxt(lines)
+        renderTxt()
         selectLine()
     }
 }
 
-function renderTxt(lines) {
+function renderTxt() {
+    const { selectedLineIdx, lines } = getMeme()
+
     lines.forEach(line => {
         gCtx.font = `${line.size}px ${line.font}`
         gCtx.fillStyle = line.color
@@ -42,6 +44,8 @@ function renderTxt(lines) {
 
         line.width = gCtx.measureText(line.txt).width
     })
+    const elTxt = document.querySelector('[name="txt"]');
+    if (lines.length) elTxt.value = lines[selectedLineIdx].txt
 }
 
 function placeTxt() {
@@ -94,7 +98,10 @@ function onMoveLine(ev) {
 
 function onUp() {
     isLineDrag = false
-    document.querySelector('canvas').style.cursor = 'grab'
+
+    const elCanvas = document.querySelector('canvas')
+    elCanvas.focus()
+    elCanvas.style.cursor = 'grab'
 }
 
 function onAddLine() {
@@ -113,8 +120,13 @@ function onAlignLine(elBtn) {
     renderMeme()
 }
 
-function onSetTxt(elTxtInput) {
-    setTxt(elTxtInput.value)
+function onSetTxt(ev) {
+    ev.preventDefault()
+
+    const elEditor = document.querySelector('.editor')
+    if (elEditor.classList.contains('hidden')) return
+
+    setTxt(ev.key)
     renderMeme()
 }
 

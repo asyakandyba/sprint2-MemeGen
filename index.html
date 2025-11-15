@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 
-<body class="main-layout" onload="onInit()" onresize="onResize()">
+<body class="main-layout" onload="onInit()" onresize="onResize()" onkeydown="onSetTxt(event)">
 
     <header class="main-header flex full">
         <img class="logo" src="img/logo.png">
@@ -32,7 +32,7 @@
         </div>
 
         <div class="edit-container">
-            <input type="text" placeholder="Write here" oninput="onSetTxt(this)">
+            <input name="txt" type="text" placeholder="Write here" oninput="onSetTxt(this)">
 
             <div class="line-btns">
                 <button onclick="onAddLine()">
