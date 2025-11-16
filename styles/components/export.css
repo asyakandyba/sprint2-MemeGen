@@ -1,5 +1,7 @@
 .export {
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 
     >form {
         >.btn {
@@ -13,11 +15,10 @@
     }
 
     >a {
+
         background-color: #f4c235;
         padding-inline: 1rem;
         padding-block: .4rem;
-
-        margin: .5rem;
 
         &:hover {
             color: #f4c235;

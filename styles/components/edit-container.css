@@ -1,13 +1,21 @@
 .edit-container {
     display: flex;
     flex-direction: column;
-    place-items: center;
+    align-items: center;
+    justify-content: center;
     gap: 40px;
 
+    height: fit-content;
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: var(--clr-primery-base);
+
     >input {
-        border-radius: 1.5rem;
+        width: 70%;
         padding: .7rem;
-        width: 100%;
+
+        border: none;
+        border-radius: 1.5rem;
     }
 
     >.txt-btns {
