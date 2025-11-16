@@ -4,7 +4,8 @@ let gElCanvas
 let gCtx
 
 let gStartPos
-let isLineDrag = false
+let gIsLineDrag = false
+let gIsLineSelected = true
 
 function onResize() {
     resizeCanvas()
@@ -30,7 +31,7 @@ function renderMeme() {
             gIsImgSelected = false
         }
         renderTxt()
-        selectLine()
+        if (gIsLineSelected) selectLine()
     }
 }
 
@@ -66,6 +67,9 @@ function selectLine() {
     const lineHeight = -currLine.size * 1.5
     const y = currLine.posY - (lineHeight / 4)
 
+    gCtx.strokeStyle = 'white'
+    gCtx.lineWidth = 3
+    gCtx.setLineDash([10, 5])
     gCtx.strokeRect(x, y, currLine.width + 10, lineHeight)
 }
 
@@ -73,9 +77,14 @@ function onDown(ev) {
     const pos = getEvPos(ev)
 
     const isLine = getLine(pos.x, pos.y)
-    if (!isLine) return
+    if (!isLine) {
+        gIsLineSelected = false
+        renderMeme()
+        return
+    }
 
-    isLineDrag = true
+    gIsLineSelected = true
+    gIsLineDrag = true
     gStartPos = pos
 
     document.querySelector('canvas').style.cursor = 'grabbing'
@@ -83,7 +92,7 @@ function onDown(ev) {
 }
 
 function onMoveLine(ev) {
-    if (!isLineDrag) return
+    if (!gIsLineDrag) return
 
     const pos = getEvPos(ev)
 
@@ -96,7 +105,7 @@ function onMoveLine(ev) {
 }
 
 function onUp() {
-    isLineDrag = false
+    gIsLineDrag = false
     document.querySelector('canvas').style.cursor = 'grab'
 }
 
@@ -116,13 +125,14 @@ function onAlignLine(elBtn) {
     renderMeme()
 }
 
-function onSetTxt(ev) {
+function onSetTxt(elTxtInput) {
+
     const elEditor = document.querySelector('.editor')
     if (elEditor.classList.contains('hidden')) return
 
-    if (ev.code === 'Space') ev.preventDefault()
+    if (elTxtInput.code === 'Space') elTxtInput.preventDefault()
 
-    setTxt(ev.key)
+    setTxt(elTxtInput.key || elTxtInput)
     renderMeme()
 }
 
@@ -155,10 +165,10 @@ function renderImg(img) {
 
 function onDownloadMeme(elLink) {
     const dataUrl = gElCanvas.toDataURL()
-
     elLink.href = dataUrl
     elLink.download = 'my-meme'
 }
+
 
 function onShareImg(ev) {
     ev.preventDefault()
