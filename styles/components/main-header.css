@@ -2,10 +2,9 @@
     justify-content: space-between;
     align-items: center;
 
-    height: 7rem;
     margin: 1rem;
     padding-inline: 2rem;
-    
+
     border-radius: 3rem;
     background-color: var(--clr-secondary);
 
@@ -14,8 +13,9 @@
         padding-block-start: .7rem;
     }
 
-    a{
+    a {
         padding: 1rem;
         margin-inline-end: .5rem;
+        font-size: 1.7rem;
     }
 }

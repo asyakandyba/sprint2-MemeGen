@@ -54,7 +54,7 @@ function placeTxt() {
 
     lines.forEach((line, idx) => {
         line.posX = (gElCanvas.width - line.width) / 2
-        line.posY = idx === 0 ? 40 : gElCanvas.height - 20
+        line.posY = idx === 0 ? 60 : gElCanvas.height - 20
     })
 }
 

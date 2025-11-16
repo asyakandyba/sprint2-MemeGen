@@ -71,7 +71,7 @@
 
     .editor {
         >.canvas-container {
-            max-width: 600px;
+            width: 600px;
         }
     }
 

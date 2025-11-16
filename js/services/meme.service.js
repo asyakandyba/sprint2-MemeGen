@@ -101,7 +101,7 @@ function createLines() {
 function _createLine(posX, posY, txt = 'Write here') {
     return {
         txt,
-        size: 20,
+        size: 40,
         color: 'white',
         font: 'Impact',
         posX,

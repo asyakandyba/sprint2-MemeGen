@@ -15,6 +15,7 @@ function onImgSelect(id) {
     setImg(id)
     document.querySelector('.editor').classList.remove('hidden')
     document.querySelector('.main-gallery').classList.add('hidden')
+    document.querySelector('.saved-gallery').classList.add('hidden')
     document.querySelector('.search').classList.add('hidden')
 
     gIsImgSelected = true

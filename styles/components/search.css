@@ -5,8 +5,12 @@
         >input {
             width: 50vw;
             padding: 1rem;
+
             border-radius: 2rem;
+            border: 2px solid var(--clr-secondary);
             background-color: var(--clr-primery-base);
+
+            font-size: 1.2rem;
         }
     }
 }
